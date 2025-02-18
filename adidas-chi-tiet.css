@@ -1,0 +1,11 @@
+.thumbnail img, .thumbnail video {
+    cursor: pointer;
+    
+}
+.carousel-item img,
+.carousel-item video {
+    width: 604px;
+    height: 604px;
+    object-fit: cover;
+    padding: none;
+}
