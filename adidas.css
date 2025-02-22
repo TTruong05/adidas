@@ -1,524 +1,515 @@
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 .modal {
-    z-index: 2055 !important; 
+  z-index: 2055 !important;
 }
-    
+
 .modal-backdrop {
-    z-index: 199 !important; 
+  z-index: 199 !important;
 }
 .modal.right .modal-dialog {
-    position: fixed;
-    right: 0;
-    margin: 0;
-    width: 800px; 
-    height: 100%;
+  position: fixed;
+  right: 0;
+  margin: 0;
+  width: 800px;
+  height: 100%;
 }
 .modal.right .modal-content {
-    height: 100%;
-    border-radius: 0;
-    box-shadow: none;
+  height: 100%;
+  border-radius: 0;
+  box-shadow: none;
 }
 .modal-header {
-    border-bottom: none;
-    padding: 20px;
+  border-bottom: none;
+  padding: 20px;
 }
 .modal-body {
-    max-height: 500px; 
-    overflow-y: auto; 
+  max-height: 500px;
+  overflow-y: auto;
 }
 .modal-body .form-label {
-    font-weight: bold;
+  font-weight: bold;
 }
-#login  {
-    border: none;
-    border-bottom: 3px solid #9d9d9d; 
-    border-radius: 0%;
+#login {
+  border: none;
+  border-bottom: 3px solid #9d9d9d;
+  border-radius: 0%;
 }
-#password  {
-    border: none;
-    border-bottom: 3px solid #9d9d9d; 
-    border-radius: 0%;
+#password {
+  border: none;
+  border-bottom: 3px solid #9d9d9d;
+  border-radius: 0%;
 }
-#phone  {
-    border: none;
-    border-bottom: 3px solid #9d9d9d; 
-    border-radius: 0%;
+#phone {
+  border: none;
+  border-bottom: 3px solid #9d9d9d;
+  border-radius: 0%;
 }
 .form-control:focus {
-    outline: none; 
-    box-shadow: none; 
+  outline: none;
+  box-shadow: none;
 }
 .modal-body a {
-    color: black;
-    text-decoration: underline;
-    font-size: 14px;
-    font-weight: bold;
+  color: black;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: bold;
 }
 .form-check {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .form-check-input {
-    background-color: #f0f0f000; 
-    border: 2px solid #000000; 
-    border-radius: 4px; 
+  background-color: #f0f0f000;
+  border: 2px solid #000000;
+  border-radius: 4px;
 }
 .form-check-input:checked {
-    background-color: #000000; 
-    border: 2px solid #000000; 
+  background-color: #000000;
+  border: 2px solid #000000;
 }
 .modal-body .form-check-input:focus {
-    outline: none;
-    box-shadow: none; 
+  outline: none;
+  box-shadow: none;
 }
-.button-modal{
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
-    transition: background-color 0.4s ease, color 0.4s ease;
+.button-modal {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
-.button-modal:hover{
-    background-color: rgb(0, 0, 0);
-    color: white;
+.button-modal:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
 .navbar {
-    height: 55px;
-    z-index: 200;
+  height: 55px;
+  z-index: 200;
 }
 .navbar .nav-link {
-    font-weight: bold;
-    color: #a5a5a5;
-    margin: 0; 
-    padding: 8px 15px; 
+  font-weight: bold;
+  color: #a5a5a5;
+  margin: 0;
+  padding: 8px 15px;
 }
 .navbar .nav-link:hover,
 .navbar .dropdown:hover > .nav-link {
-    color: #000000; 
-    transition: color 0.2s ease-in-out;
+  color: #000000;
+  transition: color 0.2s ease-in-out;
 }
 .dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1; /* Hiện thị menu */
-    transition: opacity 0.3s ease; /* Hiệu ứng chuyển tiếp */
+  display: block;
+  opacity: 1; /* Hiện thị menu */
+  transition: opacity 0.3s ease; /* Hiệu ứng chuyển tiếp */
 }
 .dropdown .dropdown-menu {
-    display: none; 
-    opacity: 0; 
+  display: none;
+  opacity: 0;
 }
 .list-unstyled a {
-    color: #a5a5a5;
-    text-decoration: none;
+  color: #a5a5a5;
+  text-decoration: none;
 }
 .list-unstyled a:hover {
-    color: #000000;
-    transition: color 0.2s ease-in-out;
+  color: #000000;
+  transition: color 0.2s ease-in-out;
 }
 .mega-menu {
-    width: 100vw; 
-    left: 0; 
-    right: 0;
-    top: 100%; 
-    background-color: #f8f9fa;
-    position: absolute; 
-    border-radius: 0; 
-    z-index: 1000; /* Đặt z-index để menu nằm trên các phần tử khác */
-    border: none;
-    border-bottom: 1px solid rgb(238, 238, 238);
+  width: 100vw;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background-color: #f8f9fa;
+  position: absolute;
+  border-radius: 0;
+  z-index: 1000; /* Đặt z-index để menu nằm trên các phần tử khác */
+  border: none;
+  border-bottom: 1px solid rgb(238, 238, 238);
 }
 .mega-menu h5 {
-    margin-top: 0;
+  margin-top: 0;
 }
 .dropdown-toggle::after {
-    display: none;
+  display: none;
 }
 .search-box {
-    display: flex;
-    align-items: center;
-    background-color: #f1f3f5; 
-    padding: 5px 10px;
-    border-radius: 4px;
+  display: flex;
+  align-items: center;
+  background-color: #f1f3f5;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 .search-box input {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
 }
 .search-box input::placeholder {
-    color: #999;
+  color: #999;
 }
 
 .search-box .icon {
-    font-size: 1.2rem;
-    color: #000;
+  font-size: 1.2rem;
+  color: #000;
 }
 /* css trang chu 1*/
-.tc-1{
-    background-color: #000;
+.tc-1 {
+  background-color: #000;
 }
-.vd-bg-trang-chu-1{
-    z-index: 1;
-    margin-top: -165px;
+.vd-bg-trang-chu-1 {
+  z-index: 1;
+  margin-top: -165px;
+}
+.content-trang-chu-1 {
+  z-index: 2;
+  margin-top: -200px;
+}
 
+.content-trang-chu-1 h1 {
+  font-size: 60px;
 }
-.content-trang-chu-1{
-    z-index: 2;
-    margin-top: -200px;
+.content-trang-chu-1 h6 {
+  font-size: 16px;
 }
-
-.content-trang-chu-1 h1{
-    font-size: 60px;
+.xem-shop a {
+  color: #828282;
 }
-.content-trang-chu-1 h6{
-    font-size: 16px;
+.xem-shop :hover {
+  color: #000;
 }
-.xem-shop a{
-    color:#828282;
-    
+.button-tc-1 {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 2px;
+  font-weight: bold;
+  color: white;
 }
-.xem-shop :hover{
-    color:#000;
-    
-}
-.button-tc-1{
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    border-radius: 2px;
-    font-weight: bold;
-    color: white;
-}
-.button-tc-1:hover{
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    transition: 0.4s ease-in;
+.button-tc-1:hover {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  transition: 0.4s ease-in;
 }
 /*end css trang-chu-1*/
 /*css cho san pham*/
 .card-sp {
-    border: 2px solid rgb(220, 220, 220); 
-    border-radius: 2px;
+  border: 2px solid rgb(220, 220, 220);
+  border-radius: 2px;
 }
 
 .card-sp:hover {
-    border: 2px solid rgb(156, 156, 156); /* Viền đen khi hover */
+  border: 2px solid rgb(156, 156, 156); /* Viền đen khi hover */
 }
 
 .img-sp-truoc {
-    transition: opacity 0.3s ease;
-    height: 284px;
+  transition: opacity 0.3s ease;
+  height: 284px;
 }
 
 .card-sp:hover .img-sp-truoc {
-    opacity: 0; /* Ẩn hình ảnh chính */
+  opacity: 0; /* Ẩn hình ảnh chính */
 }
 
 .card-sp:hover .img-sp-sau {
-    opacity: 1; /* Hiển thị hình ảnh hover */
+  opacity: 1; /* Hiển thị hình ảnh hover */
 }
 
 .img-sp-sau {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 283px;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 283px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .sp-gia {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .sp-ten {
-    margin-top: 10px;
-    color: #292929;
+  margin-top: 10px;
+  color: #292929;
 }
 
 .card-body-sp {
-    position: relative;
-    
+  position: relative;
 }
 /*slogan*/
-.slogan-ads{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+.slogan-ads {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
-.slogan-ads h1{
-    font-size: 4em;
-    font-weight: 900;
-    margin: 0;
+.slogan-ads h1 {
+  font-size: 4em;
+  font-weight: 900;
+  margin: 0;
 }
 .button-slogan {
-    display: inline-block;
-    padding: 15px 30px;
-    margin-top: 10px;
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-    border-radius: 60px;
-    transition: background-color 0.3s, color 0.3s;
-    border: 1px solid rgb(255, 255, 255);
+  display: inline-block;
+  padding: 15px 30px;
+  margin-top: 10px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  border-radius: 60px;
+  transition: background-color 0.3s, color 0.3s;
+  border: 1px solid rgb(255, 255, 255);
 }
 .button-slogan:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 }
 
 /*css trang cbu 2*/
-.content-tc-2 h5{
-    font-weight: bolder;
+.content-tc-2 h5 {
+  font-weight: bolder;
 }
 .card-tc-2 {
-    display: flex;
-    overflow-x: auto; /*Cho phép cuộn ngang */
-    scrollbar-width: thin;
-    scrollbar-color: #666666 #ffffff;
-    scroll-behavior: smooth;
-    
+  display: flex;
+  overflow-x: auto; /*Cho phép cuộn ngang */
+  scrollbar-width: thin;
+  scrollbar-color: #666666 #ffffff;
+  scroll-behavior: smooth;
 }
 
 .product-item {
-    scroll-snap-align: start; /* Đảm bảo các mục bắt đầu hoạt động */
-    width: 250px;
-    margin-right: 16px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
+  scroll-snap-align: start; /* Đảm bảo các mục bắt đầu hoạt động */
+  width: 250px;
+  margin-right: 16px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
 }
 
 .product-item img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /*css trangchu3*/
-.tc-3{
-    background-color: #000;
+.tc-3 {
+  background-color: #000;
 }
 /*css trangchu4*/
 .tc-04-scroll-container {
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: thin;
-    scrollbar-color: #666666 #ffffff;
-    scroll-behavior: smooth;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: #666666 #ffffff;
+  scroll-behavior: smooth;
 }
 .tc-04-scroll-item {
-    display: inline-block;
-    width: 330px;
-    margin-right: 20px;
+  display: inline-block;
+  width: 330px;
+  margin-right: 20px;
 }
 .tc-04-scroll-container img {
-    width: 100%;
-    height: 430px;
+  width: 100%;
+  height: 430px;
 }
 .tc-04-scroll-item h6 {
-    font-weight: bold;
-    margin-top: 10px;
-    height: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+  height: 15px;
 }
 .tc-04-scroll-item p {
-    font-size: 14px;
-    color: #666;
-    height: 30px;
-    font-weight: normal;
+  font-size: 14px;
+  color: #666;
+  height: 30px;
+  font-weight: normal;
 }
 .tc-04-scroll-item a {
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #000;
 }
-.tc-04-scroll-item a:hover{
-    color: #666;
+.tc-04-scroll-item a:hover {
+  color: #666;
 }
 /*css trang chu 5*/
 .tc-5-card img {
-    width: 300px;
-    height: 400px;
+  width: 300px;
+  height: 400px;
 }
 .tc-5-info a {
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    border-bottom: 2px solid black;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid black;
 }
 
 .tc-5-info a:hover {
-    color: gray;
-    border-bottom: 2px solid gray;
+  color: gray;
+  border-bottom: 2px solid gray;
 }
 /*css trang chu 5*/
 .hover-img-tc5 {
-    position: relative;
-  }
-  
-  .overlay-tc5 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.015);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .hover-img-tc5 img {
-    transition: opacity 0.3s ease;
-  }
-  
-  .hover-img-tc5:hover img {
-    opacity: 0.7;
-  }
-  
-  .hover-img-tc5:hover .overlay-tc5 {
-    opacity: 1;
-  }
-  
-  .hover-imgtc5:hover .overlay-tc5 button {
-    display: block;
-  }
+  position: relative;
+}
+
+.overlay-tc5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.015);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-img-tc5 img {
+  transition: opacity 0.3s ease;
+}
+
+.hover-img-tc5:hover img {
+  opacity: 0.7;
+}
+
+.hover-img-tc5:hover .overlay-tc5 {
+  opacity: 1;
+}
+
+.hover-imgtc5:hover .overlay-tc5 button {
+  display: block;
+}
 /*css trang chu 7*/
 
-.tc-7 img{
-    border-radius: 30px;
+.tc-7 img {
+  border-radius: 30px;
 }
-.tc-7 h1{
-    font-size: 64px;
-    font-weight: 700;
+.tc-7 h1 {
+  font-size: 64px;
+  font-weight: 700;
 }
 /*css footer*/
 
-.footer p{
-    font-size: 12px;
+.footer p {
+  font-size: 12px;
 }
-.footer a{
-    color: #353535;
-    border-bottom: 3px solid #ffffff;
-    padding-bottom: 2px;
-    transition: border-bottom 0.2s ease;
+.footer a {
+  color: #353535;
+  border-bottom: 3px solid #ffffff;
+  padding-bottom: 2px;
+  transition: border-bottom 0.2s ease;
 }
-.footer a:hover{
-    border-bottom: 3px solid #282727;
+.footer a:hover {
+  border-bottom: 3px solid #282727;
 }
-.footer li{
-    list-style: none;
-    font-size: 12px;
-    padding-bottom: 6px;
+.footer li {
+  list-style: none;
+  font-size: 12px;
+  padding-bottom: 6px;
 }
-.footer ul{
-    padding: 0px;
+.footer ul {
+  padding: 0px;
 }
 /*css trang chi tiet*/
-.thumbnail img, .thumbnail video {
-    cursor: pointer;
-    
+.thumbnail img,
+.thumbnail video {
+  cursor: pointer;
 }
 .carousel-item img {
-    width: 604px;
-    height: 604px;
-    object-fit: cover;
-    padding: none;
+  width: 604px;
+  height: 604px;
+  object-fit: cover;
+  padding: none;
 }
 .thumbnail img {
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
 }
 
 .thumbnail img:focus {
-    outline: none;
-    border: 2px solid #000000;
+  outline: none;
+  border: 2px solid #000000;
 }
-.thumbnail  {
-    cursor: pointer;
-    border: 2px solid transparent;
+.thumbnail {
+  cursor: pointer;
+  border: 2px solid transparent;
 }
 
 .thumbnail:focus {
-    outline: none;
-    border: 2px solid #000000;
-    border-radius: 50%;
+  outline: none;
+  border: 2px solid #000000;
+  border-radius: 50%;
 }
 
 /* Style for the color selection */
 .color-circle {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid transparent;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
 }
 
 /* Highlight the selected color */
 input[type="radio"]:checked + .color-circle {
-    border: 2px solid black;
+  border: 2px solid black;
 }
 
-.size-label{
-    background-color: rgb(234, 234, 234);
-    border-radius: 3px ;
-    border: 1px solid rgb(222, 222, 222);
-    width: 60px;
+.size-label {
+  background-color: rgb(234, 234, 234);
+  border-radius: 3px;
+  border: 1px solid rgb(222, 222, 222);
+  width: 60px;
 }
-.sl-input-group{
-    width: 100px;
-    
+.sl-input-group {
+  width: 100px;
 }
-.sl-input{
-    background-color: rgb(234, 234, 234);
-    
+.sl-input {
+  background-color: rgb(234, 234, 234);
 }
-.mua-button button{
-    border: none;
-    height: 45px;
-    width: 447px;
-    margin-top: -3px;
-    border-radius: 5px;
-    background-color: rgb(234, 234, 234);
-    transition: background-color 0.3s ease;
-    
+.mua-button button {
+  border: none;
+  height: 45px;
+  width: 447px;
+  margin-top: -3px;
+  border-radius: 5px;
+  background-color: rgb(234, 234, 234);
+  transition: background-color 0.3s ease;
 }
-.yt-button button{
-    border: none;
-    height: 45px;
-    width: 45px;
-    border-radius: 5px;
-    margin-top: -3px;
-    background-color: rgb(231, 89, 89);
-    transition: background-color 0.3s ease;
+.yt-button button {
+  border: none;
+  height: 45px;
+  width: 45px;
+  border-radius: 5px;
+  margin-top: -3px;
+  background-color: rgb(231, 89, 89);
+  transition: background-color 0.3s ease;
 }
-.them-gio-button button{
-    border: none;
-    height: 45px;
-    width: 500px;
-    margin-top: 9px;
-    border-radius: 5px;
-    background-color: rgb(234, 234, 234);
-    transition: background-color 0.3s ease;
+.them-gio-button button {
+  border: none;
+  height: 45px;
+  width: 500px;
+  margin-top: 9px;
+  border-radius: 5px;
+  background-color: rgb(234, 234, 234);
+  transition: background-color 0.3s ease;
 }
-.mua-button :hover{
-    background-color: rgb(209, 209, 209);
+.mua-button :hover {
+  background-color: rgb(209, 209, 209);
 }
-.yt-button :hover{
-    background-color: rgb(206, 75, 75);
+.yt-button :hover {
+  background-color: rgb(206, 75, 75);
 }
-.them-gio-button :hover{
-    background-color: rgb(209, 209, 209);
+.them-gio-button :hover {
+  background-color: rgb(209, 209, 209);
 }
 /*css trang mo-ta-sp*/
-.img-mt-ct img{
-    height: 300px;
+.img-mt-ct img {
+  height: 300px;
 }
-.thong-tin-ct{
-    border-bottom: 2px solid rgb(220, 220, 220);
+.thong-tin-ct {
+  border-bottom: 2px solid rgb(220, 220, 220);
 }
-.khach-hang-dg{
-    
-    border-bottom: 2px solid rgb(235, 235, 235);
+.khach-hang-dg {
+  border-bottom: 2px solid rgb(235, 235, 235);
 }
