@@ -77,3 +77,65 @@ function removeFromCart(index) {
 if (document.getElementById("cart-items")) {
   updateCart();
 }
+document.getElementById("loginBtn").addEventListener("click", function () {
+  document.getElementById("loginForm").requestSubmit();
+});
+
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn form tải lại trang
+
+    // Lấy giá trị từ input
+    let username = document.getElementById("login").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+
+    // Kiểm tra định dạng số điện thoại (10 số, bắt đầu bằng 0)
+    let phoneRegex = /^0\d{9}$/;
+    if (!phoneRegex.test(phone)) {
+      alert(
+        "Số điện thoại không hợp lệ! Vui lòng nhập số điện thoại 10 số, bắt đầu bằng 0."
+      );
+      return;
+    }
+
+    // Giả lập tài khoản mẫu
+    const validAccounts = [
+      { username: "admin", password: "123456", phone: "0987654321" },
+      { username: "vantruong", password: "truong123", phone: "0799338349" },
+    ];
+
+    // Kiểm tra đăng nhập
+    let isValid = validAccounts.some(
+      (account) =>
+        account.username === username &&
+        account.password === password &&
+        account.phone === phone
+    );
+
+    if (isValid) {
+      alert("Đăng nhập thành công!");
+      let modal = bootstrap.Modal.getInstance(
+        document.getElementById("loginModal")
+      );
+      modal.hide();
+    } else {
+      alert("Tên đăng nhập, mật khẩu hoặc số điện thoại không đúng!");
+    }
+  });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const togglePassword = document.getElementById("togglePassword");
+  const passwordInput = document.getElementById("password");
+
+  togglePassword.addEventListener("click", function () {
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      togglePassword.innerHTML = '<i class="bi bi-eye-slash"></i>'; // Đổi icon
+    } else {
+      passwordInput.type = "password";
+      togglePassword.innerHTML = '<i class="bi bi-eye"></i>'; // Đổi lại icon
+    }
+  });
+});
