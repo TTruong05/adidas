@@ -80,62 +80,73 @@ if (document.getElementById("cart-items")) {
 document.getElementById("loginBtn").addEventListener("click", function () {
   document.getElementById("loginForm").requestSubmit();
 });
-
-document
-  .getElementById("loginForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Ngăn form tải lại trang
-
-    // Lấy giá trị từ input
-    let username = document.getElementById("login").value.trim();
-    let password = document.getElementById("password").value.trim();
-    let phone = document.getElementById("phone").value.trim();
-
-    // Kiểm tra định dạng số điện thoại (10 số, bắt đầu bằng 0)
-    let phoneRegex = /^0\d{9}$/;
-    if (!phoneRegex.test(phone)) {
-      alert(
-        "Số điện thoại không hợp lệ! Vui lòng nhập số điện thoại 10 số, bắt đầu bằng 0."
-      );
-      return;
-    }
-
-    // Giả lập tài khoản mẫu
-    const validAccounts = [
-      { username: "admin", password: "123456", phone: "0987654321" },
-      { username: "vantruong", password: "truong123", phone: "0799338349" },
-    ];
-
-    // Kiểm tra đăng nhập
-    let isValid = validAccounts.some(
-      (account) =>
-        account.username === username &&
-        account.password === password &&
-        account.phone === phone
-    );
-
-    if (isValid) {
-      alert("Đăng nhập thành công!");
-      let modal = bootstrap.Modal.getInstance(
-        document.getElementById("loginModal")
-      );
-      modal.hide();
-    } else {
-      alert("Tên đăng nhập, mật khẩu hoặc số điện thoại không đúng!");
-    }
-  });
-
 document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("loginForm");
+  const registerForm = document.getElementById("registerForm");
+  const switchToRegister = document.getElementById("switchToRegister");
+  const switchToLogin = document.getElementById("switchToLogin");
+  const loginBtn = document.getElementById("loginBtn");
+  const registerBtn = document.getElementById("registerBtn");
   const togglePassword = document.getElementById("togglePassword");
   const passwordInput = document.getElementById("password");
 
+  // Hiển thị form đăng ký, ẩn form đăng nhập
+  switchToRegister.addEventListener("click", function () {
+    loginForm.classList.add("d-none");
+    registerForm.classList.remove("d-none");
+    switchToRegister.classList.add("d-none");
+    switchToLogin.classList.remove("d-none");
+    loginBtn.classList.add("d-none");
+    registerBtn.classList.remove("d-none");
+  });
+
+  // Hiển thị form đăng nhập, ẩn form đăng ký
+  switchToLogin.addEventListener("click", function () {
+    loginForm.classList.remove("d-none");
+    registerForm.classList.add("d-none");
+    switchToRegister.classList.remove("d-none");
+    switchToLogin.classList.add("d-none");
+    loginBtn.classList.remove("d-none");
+    registerBtn.classList.add("d-none");
+  });
+
+  // Xử lý hiển thị mật khẩu
   togglePassword.addEventListener("click", function () {
     if (passwordInput.type === "password") {
       passwordInput.type = "text";
-      togglePassword.innerHTML = '<i class="bi bi-eye-slash"></i>'; // Đổi icon
+      togglePassword.innerHTML = '<i class="bi bi-eye-slash"></i>';
     } else {
       passwordInput.type = "password";
-      togglePassword.innerHTML = '<i class="bi bi-eye"></i>'; // Đổi lại icon
+      togglePassword.innerHTML = '<i class="bi bi-eye"></i>';
     }
+  });
+
+  // Xử lý sự kiện đăng nhập
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const username = document.getElementById("login").value;
+    const password = passwordInput.value;
+    alert(`Đăng nhập thành công!\nTên đăng nhập: ${username}`);
+  });
+
+  // Xử lý sự kiện đăng ký khi nhấn nút "Đăng ký"
+  registerBtn.addEventListener("click", function () {
+    if (registerForm.classList.contains("d-none")) return; // Ngăn lỗi nếu form đang ẩn
+    registerForm.dispatchEvent(new Event("submit", { bubbles: true }));
+  });
+
+  // Xử lý sự kiện đăng ký
+  registerForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const fullName = document.getElementById("registerName").value;
+    const phone = document.getElementById("registerPhone").value;
+    const password = document.getElementById("registerPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+      alert("Mật khẩu xác nhận không khớp!");
+      return;
+    }
+    alert(`Đăng ký thành công!\nTên: ${fullName}\nSố điện thoại: ${phone}`);
   });
 });

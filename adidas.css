@@ -46,6 +46,14 @@ a {
   border-bottom: 3px solid #9d9d9d;
   border-radius: 0%;
 }
+.tendangky,
+.sdtdangky,
+.mk1dangky,
+.mk2dangky {
+  border: none;
+  border-bottom: 3px solid #9d9d9d;
+  border-radius: 0%;
+}
 .form-control:focus {
   outline: none;
   box-shadow: none;

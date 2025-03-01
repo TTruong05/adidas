@@ -767,6 +767,89 @@
                       </label>
                     </div>
                   </form>
+                  <form id="registerForm" class="d-none">
+                    <div class="mb-3">
+                      <label for="registerName" class="form-label m-0"
+                        >Tên đầy đủ</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control tendangky"
+                        id="registerName"
+                        name="registerName"
+                        placeholder="Nhập"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="registerPhone" class="form-label m-0"
+                        >Số điện thoại</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control sdtdangky"
+                        id="registerPhone"
+                        name="registerPhone"
+                        placeholder="Nhập"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="registerPassword" class="form-label m-0"
+                        >Mật khẩu</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control mk1dangky"
+                        id="registerPassword"
+                        name="registerPassword"
+                        placeholder="Nhập"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="confirmPassword" class="form-label m-0"
+                        >Xác nhận mật khẩu</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control mk2dangky"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Nhập lại mật khẩu"
+                        required
+                      />
+                    </div>
+                    <div class="mb-2">
+                      <a href="#" class="small"
+                        >Gửi liên kết về email của tôi</a
+                      >
+                    </div>
+
+                    <!-- Checkbox xác nhận điều khoản -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="over16"
+                        required
+                      />
+                      <label class="form-check-label" for="over16">
+                        Có, tôi trên 16 tuổi
+                        <a href="#">Tại sao nó quan trọng?</a>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="stayLoggedIn"
+                      />
+                      <label class="form-check-label" for="stayLoggedIn">
+                        Giữ đăng nhập cho tôi. <a href="#">Thêm thông tin</a>
+                      </label>
+                    </div>
+                  </form>
                 </div>
                 <div class="modal-footer">
                   <div class="d-flex justify-content-between w-100">
@@ -790,8 +873,26 @@
                   >
                     Đăng nhập
                   </button>
-                  <button type="button" class="button-modal w-100 fw-bold p-1">
-                    Đăng kí
+                  <button
+                    type="submit"
+                    id="registerBtn"
+                    class="button-modal w-100 fw-bold p-1 d-none"
+                  >
+                    Đăng ký
+                  </button>
+                  <button
+                    type="button"
+                    id="switchToLogin"
+                    class="button-modal w-100 fw-bold p-1 d-none"
+                  >
+                    Quay lại đăng nhập
+                  </button>
+                  <button
+                    type="button"
+                    id="switchToRegister"
+                    class="button-modal w-100 fw-bold p-1"
+                  >
+                    Đăng ký
                   </button>
                 </div>
               </div>
