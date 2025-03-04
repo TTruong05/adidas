@@ -15,7 +15,7 @@
       class="navbar navbar-expand-lg navbar-light bg-white p-0 m-0 sticky-top"
     >
       <div class="container-fluid">
-        <a class="navbar-brand p-0" href="adidas-trang-chu.html"
+        <a class="navbar-brand p-0" href="#"
           ><img
             src="Adidas.img/img-nav/adidas-logo.png"
             alt="logo"
@@ -492,7 +492,7 @@
             <li class="nav-item dropdown position-static p-2">
               <a
                 class="nav-link dropdown-toggle"
-                href="#"
+                href="adidas-shop.html"
                 id="navbarDropdownMenuLink"
                 role="button"
                 aria-expanded="false"
@@ -616,7 +616,7 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title" id="loginModalLabel fw-bold">
+                  <h4 class="modal-title fw-bold" id="loginModalLabel">
                     CHÀO MỪNG BẠN ĐẾN VỚI ADIDAS
                   </h4>
                   <button
@@ -627,30 +627,41 @@
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <form id="loginForm">
                     <div class="mb-3">
-                      <label for="login" class="form-label m-0">
-                        Tên đăng nhập</label
+                      <label for="login" class="form-label m-0"
+                        >Tên đăng nhập</label
                       >
                       <input
                         type="text"
                         class="form-control"
                         id="login"
+                        name="login"
                         placeholder="Nhập"
                         required
                       />
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 position-relative">
                       <label for="password" class="form-label m-0"
                         >Mật khẩu</label
                       >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        placeholder="Nhập"
-                        required
-                      />
+                      <div class="position-relative">
+                        <input
+                          type="password"
+                          class="form-control pe-5"
+                          id="password"
+                          name="password"
+                          placeholder="Nhập"
+                          required
+                        />
+                        <span
+                          class="position-absolute top-50 end-0 translate-middle-y me-3"
+                          id="togglePassword"
+                          style="cursor: pointer"
+                        >
+                          <i class="bi bi-eye"></i>
+                        </span>
+                      </div>
                     </div>
                     <div class="mb-1">
                       <label for="phone" class="form-label m-0"
@@ -660,6 +671,7 @@
                         type="phone"
                         class="form-control"
                         id="phone"
+                        name="phone"
                         placeholder="Nhập"
                         required
                       />
@@ -670,6 +682,8 @@
                         >Gửi liên kết về email của tôi</a
                       >
                     </div>
+
+                    <!-- Checkbox xác nhận điều khoản -->
                     <div class="form-check">
                       <input
                         class="form-check-input"
@@ -707,8 +721,8 @@
                         id="policy2"
                       />
                       <label class="form-check-label" for="policy2">
-                        Tôi theo đây đồng ý việc sử dụng thông tin cá nhân của
-                        tôi cho các mục đích quảng cáo và khuyến mãi
+                        Tôi đồng ý việc sử dụng thông tin cá nhân của tôi cho
+                        quảng cáo và khuyến mãi
                       </label>
                     </div>
 
@@ -719,8 +733,8 @@
                         id="policy3"
                       />
                       <label class="form-check-label" for="policy3">
-                        Tôi theo đây đồng ý việc chuyển giao, chia sẻ, sử dụng
-                        dữ liệu của tôi cho các <a href="">bên thứ ba</a>
+                        Tôi đồng ý việc chia sẻ dữ liệu của tôi với các
+                        <a href="#">bên thứ ba</a>
                       </label>
                     </div>
 
@@ -731,8 +745,92 @@
                         id="stayLoggedIn"
                       />
                       <label class="form-check-label" for="stayLoggedIn">
-                        Giữ đăng nhập cho tôi. Áp dụng cho mọi tùy chọn.
-                        <a href="#">Thêm thông tin</a>
+                        Giữ đăng nhập cho tôi. <a href="#">Thêm thông tin</a>
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="subscribePromo"
+                      />
+                      <label class="form-check-label" for="subscribePromo">
+                        Đăng ký để nhận thông tin khuyến mãi
+                        <a href="#">Xem thêm</a>
+                      </label>
+                    </div>
+                  </form>
+                  <form id="registerForm" class="d-none">
+                    <div class="mb-3">
+                      <label for="registerName" class="form-label m-0"
+                        >Tên đầy đủ</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control tendangky"
+                        id="registerName"
+                        name="registerName"
+                        placeholder="Nhập"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="registerPhone" class="form-label m-0"
+                        >Số điện thoại</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control sdtdangky"
+                        id="registerPhone"
+                        name="registerPhone"
+                        placeholder="Nhập"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="registerPassword" class="form-label m-0"
+                        >Mật khẩu</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control mk1dangky"
+                        id="registerPassword"
+                        name="registerPassword"
+                        placeholder="Nhập"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="confirmPassword" class="form-label m-0"
+                        >Xác nhận mật khẩu</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control mk2dangky"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Nhập lại mật khẩu"
+                        required
+                      />
+                    </div>
+                    <div class="mb-2">
+                      <a href="#" class="small"
+                        >Gửi liên kết về email của tôi</a
+                      >
+                    </div>
+
+                    <!-- Checkbox xác nhận điều khoản -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="over16"
+                        required
+                      />
+                      <label class="form-check-label" for="over16">
+                        Có, tôi trên 16 tuổi
+                        <a href="#">Tại sao nó quan trọng?</a>
                       </label>
                     </div>
                     <div class="form-check">
@@ -742,8 +840,7 @@
                         id="stayLoggedIn"
                       />
                       <label class="form-check-label" for="stayLoggedIn">
-                        Đăng ký đẻ nhận thông tin khuyến mại sớm nhất nhé
-                        <a href="#">Xem thêm</a>
+                        Giữ đăng nhập cho tôi. <a href="#">Thêm thông tin</a>
                       </label>
                     </div>
                   </form>
@@ -763,16 +860,39 @@
                       Đăng nhập bằng Facebook
                     </button>
                   </div>
-                  <button type="button" class="button-modal w-100 fw-bold p-1">
+                  <button
+                    type="submit"
+                    id="loginBtn"
+                    class="button-modal w-100 fw-bold p-1"
+                  >
                     Đăng nhập
                   </button>
-                  <button type="button" class="button-modal w-100 fw-bold p-1">
-                    Đăng kí
+                  <button
+                    type="submit"
+                    id="registerBtn"
+                    class="button-modal w-100 fw-bold p-1 d-none"
+                  >
+                    Đăng ký
+                  </button>
+                  <button
+                    type="button"
+                    id="switchToLogin"
+                    class="button-modal w-100 fw-bold p-1 d-none"
+                  >
+                    Quay lại đăng nhập
+                  </button>
+                  <button
+                    type="button"
+                    id="switchToRegister"
+                    class="button-modal w-100 fw-bold p-1"
+                  >
+                    Đăng ký
                   </button>
                 </div>
               </div>
             </div>
           </div>
+
           <a href="cart.html" class="ps-3 text-dark">
             <svg
               xmlns="http://www.w3.org/2000/svg"
