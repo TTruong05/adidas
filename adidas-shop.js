@@ -77,6 +77,21 @@ function removeFromCart(index) {
 if (document.getElementById("cart-items")) {
   updateCart();
 }
+
+// Lấy phần tử hiển thị số lượng giỏ hàng
+const cartCountElement = document.getElementById("cart-count");
+
+// Hàm cập nhật số lượng sản phẩm trong giỏ hàng
+function updateCartCount() {
+  const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  if (cartCountElement) {
+    cartCountElement.textContent = totalItems;
+    cartCountElement.style.display = totalItems > 0 ? "inline-block" : "none";
+  }
+}
+
+// Cập nhật số lượng khi tải trang
+updateCartCount();
 document.getElementById("loginBtn").addEventListener("click", function () {
   document.getElementById("loginForm").requestSubmit();
 });
