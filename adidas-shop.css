@@ -1,41 +1,118 @@
 #cart {
   margin-top: 20px;
 }
-
 #cart-items img {
   width: 90px;
   height: auto;
   margin-right: 10px;
 }
 .card-sp {
-  overflow: hidden;
   position: relative;
-  height: 390px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-sp-truoc {
+  display: block;
+  width: 100%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.img-sp-sau {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Chỉ hover khi di chuột vào ảnh */
+.img-container:hover .img-sp-truoc {
+  opacity: 0;
+}
+
+.img-container:hover .img-sp-sau {
+  opacity: 1;
 }
 
 .img-sp-truoc,
 .img-sp-sau {
   width: 100%;
   transition: opacity 0.3s ease;
-  object-fit: cover;
-  position: absolute;
-}
-
-.img-sp-truoc {
-  z-index: 1;
 }
 
 .img-sp-sau {
-  z-index: 0;
   opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.img-sp-truoc:hover {
-  opacity: 0;
+.rating {
+  font-size: 14px;
 }
 
-.img-sp-truoc:hover + .img-sp-sau {
-  opacity: 1;
+.btn-outline-dark {
+  font-weight: bold;
+  border-radius: 5px;
+}
+.add-to-cart {
+  padding: 0px;
+  border: none !important; /* Bỏ viền */
+  background: none !important; /* Bỏ màu nền */
+  font-weight: bold;
+  text-decoration: underline; /* Gạch dưới chữ */
+  text-align: left; /* Canh phải */
+  display: block;
+}
+
+/* Không thay đổi khi hover */
+.add-to-cart:hover {
+  background: none !important;
+  color: black !important;
+  text-decoration: underline;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+  width: 60px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item-controls button {
+  width: 50px;
+  height: 30px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sp-gia {
