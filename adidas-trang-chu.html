@@ -571,10 +571,10 @@
             </li>
           </ul>
           <!-- thanh tìm kiếm & icon đang nhạp, giỏ hàng nav -->
-          <div class="search-box ms-5 ps-4">
-            <input type="text" placeholder="tìm kiếm" />
-            <span class="icon">
-              <i class="fas fa-search">
+          <div class="search-container">
+            <div class="search-box">
+              <input type="text" id="search-input" placeholder="Tìm kiếm..." />
+              <span class="icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -587,9 +587,11 @@
                     d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
                   />
                 </svg>
-              </i>
-            </span>
+              </span>
+            </div>
+            <div id="search-results" class="search-results-container"></div>
           </div>
+
           <!-- Thẻ <a> kích hoạt modal -->
           <a
             href="#"
@@ -1505,7 +1507,7 @@
                   class="overlay-tc5 d-flex align-items-center justify-content-center"
                 >
                   <button class="btn btn-light fw-bold">
-                    <a href="" class="text-dark">CHẠY NỘ</a>
+                    <a href="" class="text-dark">CHẠY BỘ</a>
                   </button>
                 </div>
               </div>

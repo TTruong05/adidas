@@ -319,3 +319,128 @@ document.addEventListener("DOMContentLoaded", function () {
     switchToLogin.click(); // Quay lại form đăng nhập
   });
 });
+
+// Lắng nghe sự kiện nhập vào ô tìm kiếm
+document.getElementById("search-input").addEventListener("input", function () {
+  const searchText = this.value.toLowerCase();
+  filterProducts(searchText);
+});
+
+// Cập nhật displayProducts để nhận danh sách sản phẩm tùy chỉnh
+function displayProducts(filteredList = products) {
+  const productContainer = document.getElementById("product-list");
+  if (!productContainer) return;
+
+  productContainer.innerHTML = "";
+  productContainer.className = "row gx-2";
+
+  filteredList.forEach((product) => {
+    const productElement = document.createElement("div");
+    productElement.className = "col-md-4";
+    productElement.innerHTML = `
+      <div class="card-sp  p-0">
+        <div class="img-container">
+          <img src="${product.imageFront}" class="img-sp-truoc w-100" alt="${
+      product.name
+    }">
+          <img src="${
+            product.imageBack
+          }" class="img-sp-sau w-100 position-absolute" alt="${product.name}">
+        </div>
+        <div class="p-0 pt-2 pb-4 ps-1">
+          <h5 class="sp-ten">${product.name}</h5>
+          <p class="sp-gia mb-1 text-danger fs-6 fw-bold">${product.price.toLocaleString()}₫</p>
+          <p class="text-secondary mb-1 fs-5">${generateStarRating(
+            product.rating
+          )}</p>
+          <p class="text-muted fs-6">${product.brand}</p>
+          <button class="text-secondary btn btn-outline-dark w-100 add-to-cart" data-id="${
+            product.id
+          }">
+            <i class="bi bi-bag"></i> Thêm giỏ hàng
+          </button>
+        </div>
+      </div>
+    `;
+
+    productContainer.appendChild(productElement);
+  });
+
+  attachEventListeners();
+}
+document.getElementById("search-input").addEventListener("input", function () {
+  const searchText = this.value.toLowerCase();
+  filterProducts(searchText);
+});
+
+document.getElementById("clear-search").addEventListener("click", function () {
+  document.getElementById("search-input").value = "";
+  document.getElementById("search-results").innerHTML = "";
+  document.getElementById("search-results").style.display = "none";
+});
+
+function filterProducts(searchText) {
+  const searchResultsContainer = document.getElementById("search-results");
+
+  if (searchText.trim() === "") {
+    searchResultsContainer.innerHTML = "";
+    searchResultsContainer.style.display = "none";
+    return;
+  }
+
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchText)
+  );
+
+  displaySearchResults(filteredProducts);
+}
+
+function displaySearchResults(filteredList) {
+  const searchResultsContainer = document.getElementById("search-results");
+  searchResultsContainer.innerHTML = ""; // Xóa kết quả cũ
+
+  if (filteredList.length === 0) {
+    searchResultsContainer.style.display = "none";
+    return;
+  }
+
+  searchResultsContainer.style.display = "block";
+
+  filteredList.forEach((product) => {
+    const imageUrl = product.image ? product.image : "default-image.jpg";
+    const category = product.category ? product.category : "";
+
+    const searchItem = document.createElement("div");
+    searchItem.className = "search-item";
+    searchItem.addEventListener("click", function () {
+      window.location.href = "adidas-shop.html";
+    });
+    searchItem.innerHTML = `
+      <div class="search-item-content">
+        <img src="${imageUrl}" alt="${
+      product.name
+    }" class="product-image" onerror="this.src='${product.imageFront}'">
+        <div class="product-info">
+          <span class="product-category">${category}</span>
+          <span class="product-name">${product.name}</span>
+          <span class="product-price">${product.price.toLocaleString()}₫</span>
+        </div>
+      </div>
+    `;
+
+    searchResultsContainer.appendChild(searchItem);
+  });
+}
+
+// Ẩn kết quả khi click ra ngoài
+document.addEventListener("click", function (event) {
+  const searchResultsContainer = document.getElementById("search-results");
+  const searchInput = document.getElementById("search-input");
+
+  if (
+    !searchResultsContainer.contains(event.target) &&
+    event.target !== searchInput
+  ) {
+    searchResultsContainer.style.display = "none";
+  }
+});
