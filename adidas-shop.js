@@ -187,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
   updateCart();
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const registerForm = document.getElementById("registerForm");
@@ -206,34 +207,82 @@ document.addEventListener("DOMContentLoaded", function () {
       phone: "0123456789",
     };
 
-    // Kiểm tra nếu localStorage chưa có tài khoản thì khởi tạo
+    // Kiểm tra nếu localStorage chưa có tài khoản admin thì khởi tạo
     if (!localStorage.getItem("userAccounts")) {
       localStorage.setItem("userAccounts", JSON.stringify([adminAccount]));
     }
-
-    // Lấy danh sách tài khoản từ localStorage
   });
 
-  // Chuyển đổi giữa đăng nhập & đăng ký
-  switchToRegister.addEventListener("click", function () {
-    loginForm.classList.add("d-none");
-    registerForm.classList.remove("d-none");
-    switchToRegister.classList.add("d-none");
-    switchToLogin.classList.remove("d-none");
-    loginBtn.classList.add("d-none");
-    registerBtn.classList.remove("d-none");
+  // Giả sử ban đầu đang ở trạng thái đăng nhập
+  let isLoginMode = true;
+  const switchModeBtn = document.getElementById("switchModeBtn");
+  const submitBtn = document.getElementById("submitBtn");
+
+  switchModeBtn.addEventListener("click", function () {
+    if (isLoginMode) {
+      // Chuyển sang trạng thái đăng ký
+      document.getElementById("loginForm").classList.add("d-none");
+      document.getElementById("registerForm").classList.remove("d-none");
+      // Cập nhật thuộc tính form của submitBtn để submit registerForm
+      submitBtn.setAttribute("form", "registerForm");
+      submitBtn.textContent = "Đăng ký";
+      switchModeBtn.textContent = "Quay lại đăng nhập";
+      isLoginMode = false;
+    } else {
+      // Quay lại trạng thái đăng nhập
+      document.getElementById("registerForm").classList.add("d-none");
+      document.getElementById("loginForm").classList.remove("d-none");
+      submitBtn.setAttribute("form", "loginForm");
+      submitBtn.textContent = "Đăng nhập";
+      switchModeBtn.textContent = "Đăng ký";
+      isLoginMode = true;
+    }
   });
 
-  switchToLogin.addEventListener("click", function () {
-    loginForm.classList.remove("d-none");
-    registerForm.classList.add("d-none");
-    switchToRegister.classList.remove("d-none");
-    switchToLogin.classList.add("d-none");
-    loginBtn.classList.remove("d-none");
-    registerBtn.classList.add("d-none");
+  // Thêm xử lý cho form đăng ký
+  registerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    // Lấy dữ liệu từ các trường của form đăng ký
+    const registerName = document.getElementById("registerName").value;
+    const registerPhone = document.getElementById("registerPhone").value;
+    const registerPassword = document.getElementById("registerPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (registerPassword !== confirmPassword) {
+      alert("Mật khẩu xác nhận không khớp!");
+      return;
+    }
+
+    // Lấy danh sách tài khoản đã lưu trong localStorage, nếu chưa có thì khởi tạo mảng rỗng
+    let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+    // Tạo đối tượng tài khoản mới
+    const newAccount = {
+      id: Date.now(),
+      username: registerName,
+      accountPassword: registerPassword,
+      phone: registerPhone,
+    };
+
+    // Thêm tài khoản mới vào mảng
+    accounts.push(newAccount);
+    // Lưu lại vào localStorage
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+    alert("Đăng ký thành công!");
+
+    // Sau khi đăng ký, bạn có thể chuyển về form đăng nhập hoặc chuyển hướng đến admin.html
+    // Ví dụ: chuyển về form đăng nhập
+    document.getElementById("registerForm").classList.add("d-none");
+    document.getElementById("loginForm").classList.remove("d-none");
+    submitBtn.setAttribute("form", "loginForm");
+    submitBtn.textContent = "Đăng nhập";
+    switchModeBtn.textContent = "Đăng ký";
+    isLoginMode = true;
   });
 
-  // Hiển thị / Ẩn mật khẩu
+  // Bạn có thể thêm xử lý cho form đăng nhập nếu cần ở đây...
+
+  // Xử lý hiển thị/ẩn mật khẩu
   togglePassword.addEventListener("click", function () {
     if (passwordInput.type === "password") {
       passwordInput.type = "text";
@@ -242,81 +291,6 @@ document.addEventListener("DOMContentLoaded", function () {
       passwordInput.type = "password";
       togglePassword.innerHTML = '<i class="bi bi-eye"></i>';
     }
-  });
-
-  // Xử lý đăng nhập
-  loginForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const username = document.getElementById("login").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const password = passwordInput.value.trim();
-
-    // Kiểm tra tài khoản admin
-    if (
-      (username === adminAccount.username || phone === adminAccount.phone) &&
-      password === adminAccount.password
-    ) {
-      alert("Đăng nhập thành công với tư cách Admin!");
-      localStorage.setItem("userRole", "admin");
-
-      // Đợi 0.5 giây để chắc chắn localStorage đã lưu trước khi chuyển trang
-      setTimeout(() => {
-        window.location.href = "admin.html";
-      }, 500); // Mở trang admin trong tab mới
-      return;
-    }
-
-    // Kiểm tra tài khoản khách
-    const user = userAccounts.find(
-      (u) =>
-        (u.username === username || u.phone === phone) &&
-        u.password === password
-    );
-
-    if (user) {
-      alert("Đăng nhập thành công!");
-      localStorage.setItem("userRole", "user");
-
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 500); // Chuyển đến trang chính
-    } else {
-      alert("Tên đăng nhập, số điện thoại hoặc mật khẩu không đúng!");
-    }
-  });
-
-  // Xử lý đăng ký tài khoản khách
-  registerForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const fullName = document.getElementById("registerName").value.trim();
-    const phone = document.getElementById("registerPhone").value.trim();
-    const password = document.getElementById("registerPassword").value.trim();
-    const confirmPassword = document
-      .getElementById("confirmPassword")
-      .value.trim();
-
-    if (!fullName || !phone || !password || !confirmPassword) {
-      alert("Vui lòng điền đầy đủ thông tin!");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      alert("Mật khẩu xác nhận không khớp!");
-      return;
-    }
-
-    // Kiểm tra số điện thoại đã tồn tại chưa
-    if (userAccounts.some((user) => user.phone === phone)) {
-      alert("Số điện thoại này đã được đăng ký!");
-      return;
-    }
-
-    // Lưu tài khoản mới
-    userAccounts.push({ username: fullName, phone, password });
-    localStorage.setItem("userAccounts", JSON.stringify(userAccounts));
-
-    alert("Đăng ký thành công! Vui lòng đăng nhập.");
-    switchToLogin.click(); // Quay lại form đăng nhập
   });
 });
 
